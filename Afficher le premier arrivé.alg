@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Algo>
-    <description texte="Afficher le premier arrivé:&#xa;Écrivez un algorithme , qui affiche le premier apprenant arrivé dans la salle sur les 39 apprenants." courant="AFFICHER i"/>
+    <description texte="Afficher le premier arrivé:&#xa;Écrivez un algorithme , qui affiche le premier apprenant arrivé dans la salle sur les 39 apprenants." courant="FIN_ALGORITHME"/>
     <extension extnom="inactif"/>
     <fonction fctetat="inactif" fctcode=""/>
     <F2 F2para="" F2etat="inactif" F2defaut="" F2lignes=""/>
@@ -11,7 +11,7 @@
         <item algoitem="nb_apprenants EST_DU_TYPE NOMBRE" code="1#NOMBRE#nb_apprenants"/>
         <item algoitem="i EST_DU_TYPE NOMBRE" code="1#NOMBRE#i"/>
         <item algoitem="Premier_Arrive EST_DU_TYPE CHAINE" code="1#CHAINE#Premier_Arrive"/>
-        <item algoitem="apprenants EST_DU_TYPE CHAINE" code="1#CHAINE#apprenants"/>
+        <item algoitem="apprenant EST_DU_TYPE CHAINE" code="1#CHAINE#apprenant"/>
     </item>
     <item algoitem="DEBUT_ALGORITHME" code="101#debutalgo">
         <item algoitem="AFFICHER &quot;Combien d'apprenants sont présents ? &quot;" code="4#Combien d'apprenants sont présents ? #0"/>
@@ -19,12 +19,16 @@
         <item algoitem="POUR i ALLANT_DE 1 A nb_apprenants" code="12#i#1#nb_apprenants">
             <item algoitem="DEBUT_POUR" code="13#debutpour"/>
             <item algoitem="AFFICHER &quot;Entrez le nom de l'apprenant : &quot;" code="4#Entrez le nom de l'apprenant : #0"/>
-            <item algoitem="LIRE apprenants" code="2#apprenants#pasliste"/>
+            <item algoitem="LIRE apprenant" code="2#apprenant#pasliste"/>
+            <item algoitem="SI (i==1) ALORS" code="6#i==1">
+                <item algoitem="DEBUT_SI" code="7#debutsi"/>
+                <item algoitem="Premier_Arrive PREND_LA_VALEUR apprenant" code="5#Premier_Arrive#apprenant#pasliste"/>
+                <item algoitem="FIN_SI" code="8#finsi"/>
+            </item>
             <item algoitem="FIN_POUR" code="14#finpour"/>
         </item>
-        <item algoitem="i PREND_LA_VALEUR Premier_Arrive" code="5#i#Premier_Arrive#pasliste"/>
         <item algoitem="AFFICHER &quot;Le premier apprenant arrivé est : &quot;" code="4#Le premier apprenant arrivé est : #0"/>
-        <item algoitem="AFFICHER i" code="3#i#0#pasliste"/>
+        <item algoitem="AFFICHER Premier_Arrive" code="3#Premier_Arrive#0#pasliste"/>
     </item>
     <item algoitem="FIN_ALGORITHME" code="102#finalgo"/>
 </Algo>
